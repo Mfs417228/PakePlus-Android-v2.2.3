@@ -1,26 +1,12 @@
-console.log(
-    '%cbuild from PakePlus： https://github.com/Sjj1024/PakePlus',
-    'color:orangered;font-weight:bolder'
-)
+window.addEventListener("DOMContentLoaded",()=>{const t=document.createElement("script");t.src="https://www.googletagmanager.com/gtag/js?id=G-W5GKHM0893",t.async=!0,document.head.appendChild(t);const n=document.createElement("script");n.textContent="window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-W5GKHM0893');",document.body.appendChild(n)});@echo off
+echo 正在启动后端服务器...
+start cmd /k "cd backend && node server.js"
+echo 后端服务器已启动，运行在 http://localhost:5008/
 
-// very important, if you don't know what it is, don't touch it
-// 非常重要，不懂代码不要动
-const hookClick = (e) => {
-    const origin = e.target.closest('a')
-    const isBaseTargetBlank = document.querySelector(
-        'head base[target="_blank"]'
-    )
-    console.log('origin', origin, isBaseTargetBlank)
-    if (
-        (origin && origin.href && origin.target === '_blank') ||
-        (origin && origin.href && isBaseTargetBlank)
-    ) {
-        e.preventDefault()
-        console.log('handle origin', origin)
-        location.href = origin.href
-    } else {
-        console.log('not handle origin', origin)
-    }
-}
+echo 正在启动前端开发服务器...
+start cmd /k "cd frontend && npm run dev"
+echo 前端服务器已启动，运行在 http://localhost:3002/
 
-document.addEventListener('click', hookClick, { capture: true })
+echo 所有服务器已启动完成！
+echo 请访问 http://localhost:3002/ 开始使用仓库管理系统
+pause
